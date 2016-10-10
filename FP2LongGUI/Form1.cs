@@ -37,9 +37,20 @@ namespace FP2LongGUI
             if (this.tb_Path.Text != null)
             {
                 var fp2long = new FP2LongCore.File();
+                fp2long.OnFileProcessed = writeOutput;
+                fp2long.OnCommandCompleted = writeOutput;
+                fp2long.OnCommandError = writeOutput;
                 await fp2long.Delete(this.tb_Path.Text);
             }
+        }
 
+        private void writeOutput(string message)
+        {
+            this.Invoke((MethodInvoker)delegate ()
+            {
+                tb_output.AppendText(Environment.NewLine + message);
+                
+            });
         }
     }
 }

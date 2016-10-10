@@ -10,6 +10,9 @@ namespace FP2LongCore
 {
     public class File
     {
+        public Action<string> OnCommandError;
+        public Action<string> OnCommandCompleted;
+        public Action<string> OnFileProcessed;
         private string _source;
         private string _destination;
         public string GetTemporaryDirectory()
@@ -34,12 +37,12 @@ namespace FP2LongCore
 
         private void Rc_OnFileProcessed(object sender, FileProcessedEventArgs e)
         {
-            Console.WriteLine(e.ProcessedFile.Name);
+            if (OnFileProcessed != null)
+                OnFileProcessed(e.ProcessedFile.Name);
         }
 
         private void Rc_OnCommandCompleted(object sender, RoboCommandCompletedEventArgs e)
         {
-            Console.WriteLine(e.ToString());
             try
             {
                 Directory.Delete(_source);
@@ -49,12 +52,16 @@ namespace FP2LongCore
             {
                 Console.WriteLine(ex.ToString());
             }
-            
+
+            if (OnCommandCompleted != null)
+                OnCommandCompleted(e.ToString());
+
         }
 
         private void Rc_OnCommandError(object sender, RoboSharp.ErrorEventArgs e)
         {
-            Console.WriteLine(e.ToString());
+            if (OnCommandError != null)
+                OnCommandError(e.ToString());
         }
     }
 }

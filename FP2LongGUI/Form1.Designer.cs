@@ -32,10 +32,13 @@
             this.l_Path = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tb_Path = new System.Windows.Forms.TextBox();
+            this.tb_output = new System.Windows.Forms.TextBox();
+            this.l_output = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // b_delete
             // 
+            this.b_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.b_delete.Location = new System.Drawing.Point(197, 39);
             this.b_delete.Name = "b_delete";
             this.b_delete.Size = new System.Drawing.Size(75, 23);
@@ -59,17 +62,42 @@
             // 
             // tb_Path
             // 
+            this.tb_Path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tb_Path.Location = new System.Drawing.Point(48, 13);
             this.tb_Path.Name = "tb_Path";
             this.tb_Path.Size = new System.Drawing.Size(224, 20);
             this.tb_Path.TabIndex = 2;
             this.tb_Path.Click += new System.EventHandler(this.tb_Path_Click);
             // 
+            // tb_output
+            // 
+            this.tb_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_output.Location = new System.Drawing.Point(16, 81);
+            this.tb_output.Multiline = true;
+            this.tb_output.Name = "tb_output";
+            this.tb_output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tb_output.Size = new System.Drawing.Size(256, 169);
+            this.tb_output.TabIndex = 3;
+            // 
+            // l_output
+            // 
+            this.l_output.AutoSize = true;
+            this.l_output.Location = new System.Drawing.Point(16, 62);
+            this.l_output.Name = "l_output";
+            this.l_output.Size = new System.Drawing.Size(39, 13);
+            this.l_output.TabIndex = 4;
+            this.l_output.Text = "Output";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.l_output);
+            this.Controls.Add(this.tb_output);
             this.Controls.Add(this.tb_Path);
             this.Controls.Add(this.l_Path);
             this.Controls.Add(this.b_delete);
@@ -86,6 +114,8 @@
         private System.Windows.Forms.Label l_Path;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.TextBox tb_Path;
+        private System.Windows.Forms.TextBox tb_output;
+        private System.Windows.Forms.Label l_output;
     }
 }
 
